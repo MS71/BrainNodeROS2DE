@@ -9,8 +9,11 @@ https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-E-puck-for-ROS2-Beginne
 
 * terminal A>source /opt/ros/foxy/setup.sh
 * terminal A>colcon build
+
+* terminal A>source install/setup.sh
 * terminal A>ros2 launch lawn_mower_sim_01 robot_launch.py
 
 * terminal B>source /opt/ros/foxy/setup.sh
+* terminal B>source install/setup.sh
 * terminal B>ros2 launch lawn_mower_sim_01 robot_launch.py
 * terminal B>ros2 launch lawn_mower_sim_01 robot_tools_launch.py rviz:=true nav:=true
