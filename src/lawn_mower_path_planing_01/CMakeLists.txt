@@ -18,6 +18,12 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav2_behavior_tree REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -30,12 +36,42 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(cpp_code src/ros2_cpp_code.cpp)
-ament_target_dependencies(cpp_code rclcpp)
+set(dependencies
+  rclcpp
+  rclcpp_action
+  std_msgs
+  geometry_msgs
+  nav2_behavior_tree
+  nav2_msgs
+  behaviortree_cpp_v3
+)
+
+add_executable(send_goal 
+  src/send_goal
+)
+ament_target_dependencies(send_goal
+	${dependencies}
+)
+
+add_executable(bt_ros2 src/bt_ros2)
+
+ament_target_dependencies(bt_ros2
+	${dependencies}
+)
 
 install(TARGETS
-    cpp_code
+    bt_ros2 send_goal    
     DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+    launch
+    DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+    bt_xml
+    DESTINATION share/${PROJECT_NAME}
 )
 
 ament_package()

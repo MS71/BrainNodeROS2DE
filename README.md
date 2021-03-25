@@ -15,5 +15,8 @@ https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-E-puck-for-ROS2-Beginne
 
 * terminal B>source /opt/ros/foxy/setup.sh
 * terminal B>source install/setup.sh
-* terminal B>ros2 launch lawn_mower_sim_01 robot_launch.py
-* terminal B>ros2 launch lawn_mower_sim_01 robot_tools_launch.py rviz:=true nav:=true
+* terminal B>ros2 launch lawn_mower_sim_01 robot_tools_launch.py rviz:=true nav:=true map:=/path/to/your/map.yaml
+
+* terminal C>source /opt/ros/foxy/setup.sh
+* terminal C>source install/setup.sh
+* terminal C>ros2 launch lawn_mower_path_planing_01 bt_launch.py
