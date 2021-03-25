@@ -1,6 +1,6 @@
 <root main_tree_to_execute = "MainTree">
     <BehaviorTree ID="MainTree">
-        <Repeat num_cycles="3">
+        <Repeat num_cycles="100">
             <Sequence>
                 <!-- The goal value="position-x;position-y;orientaion-z;orientation-w" -->
                 <SetBlackboard output_key="Goal_a" value="0.4;0.4;0.0;1.0" />
