@@ -1,0 +1,66 @@
+diff --git a/nav2_gradient_costmap_plugin/src/gradient_layer.cpp b/nav2_gradient_costmap_plugin/src/gradient_layer.cpp
+index 494af2c..3090ca5 100644
+--- a/nav2_gradient_costmap_plugin/src/gradient_layer.cpp
++++ b/nav2_gradient_costmap_plugin/src/gradient_layer.cpp
+@@ -67,7 +67,7 @@ GradientLayer::GradientLayer()
+ void
+ GradientLayer::onInitialize()
+ {
+-  auto node = node_.lock(); 
++  auto node = node_; 
+   declareParameter("enabled", rclcpp::ParameterValue(true));
+   node->get_parameter(name_ + "." + "enabled", enabled_);
+ 
+diff --git a/nav2_sms_recovery/src/sms_recovery.cpp b/nav2_sms_recovery/src/sms_recovery.cpp
+index 4db7300..45d504a 100644
+--- a/nav2_sms_recovery/src/sms_recovery.cpp
++++ b/nav2_sms_recovery/src/sms_recovery.cpp
+@@ -21,7 +21,7 @@ SMSRecovery::~SMSRecovery()
+ 
+ void SMSRecovery::onConfigure()
+ {
+-  auto node = node_.lock();
++  auto node = node_;
+   node->declare_parameter("account_sid");
+   _account_sid = node->get_parameter("account_sid").as_string();
+   node->declare_parameter("auth_token");
+@@ -35,7 +35,7 @@ void SMSRecovery::onConfigure()
+ 
+ Status SMSRecovery::onRun(const std::shared_ptr<const Action::Goal> command)
+ {
+-  auto node = node_.lock();
++  auto node = node_;
+   std::string response;
+   bool message_success = _twilio->send_message(
+     _to_number,
+diff --git a/nav2_straightline_planner/include/nav2_straightline_planner/straight_line_planner.hpp b/nav2_straightline_planner/include/nav2_straightline_planner/straight_line_planner.hpp
+index 1b6f839..80fc0d0 100644
+--- a/nav2_straightline_planner/include/nav2_straightline_planner/straight_line_planner.hpp
++++ b/nav2_straightline_planner/include/nav2_straightline_planner/straight_line_planner.hpp
+@@ -65,7 +65,7 @@ public:
+ 
+   // plugin configure
+   void configure(
+-    const rclcpp_lifecycle::LifecycleNode::WeakPtr & parent,
++    const rclcpp_lifecycle::LifecycleNode::SharedPtr parent,
+     std::string name, std::shared_ptr<tf2_ros::Buffer> tf,
+     std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros) override;
+ 
+diff --git a/nav2_straightline_planner/src/straight_line_planner.cpp b/nav2_straightline_planner/src/straight_line_planner.cpp
+index efab245..93fae7e 100644
+--- a/nav2_straightline_planner/src/straight_line_planner.cpp
++++ b/nav2_straightline_planner/src/straight_line_planner.cpp
+@@ -49,11 +49,11 @@ namespace nav2_straightline_planner
+ {
+ 
+ void StraightLine::configure(
+-  const rclcpp_lifecycle::LifecycleNode::WeakPtr & parent,
++  const rclcpp_lifecycle::LifecycleNode::SharedPtr parent,
+   std::string name, std::shared_ptr<tf2_ros::Buffer> tf,
+   std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros)
+ {
+-  node_ = parent.lock();
++  node_ = parent;
+   name_ = name;
+   tf_ = tf;
+   costmap_ = costmap_ros->getCostmap();
