@@ -32,7 +32,7 @@ data_files.append(('share/' + package_name + '/protos/icons', glob('protos/icons
 data_files.append(('share/' + package_name + '/protos/textures', glob('protos/textures/*')))
 data_files.append(('share/' + package_name + '/resource', [
     'resource/all.rviz',
-    'resource/epuck_nav2_params.yaml',
+    'resource/nav2_params.yaml',
     'resource/map_rats_life.pgm',
     'resource/map_rats_life.yaml',
     'resource/nav2_rats_life_waypoints.yaml',
