@@ -29,14 +29,14 @@ from launch.actions import ExecuteProcess
 
 def generate_launch_description():
     launch_description_nodes = []
-    package_dir = get_package_share_directory('webots_ros2_epuck')
+    package_dir = get_package_share_directory('lawn_mower_sim_01')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default=False)
     use_nav = LaunchConfiguration('nav', default=False)
     use_rviz = LaunchConfiguration('rviz', default=True)
     use_mapper = LaunchConfiguration('mapper', default=False)
     fill_map = LaunchConfiguration('fill_map', default=True)
-    map_filename = LaunchConfiguration('fill_map', default=os.path.join(package_dir, 'resource', 'epuck_world_map.yaml'))
+    map_filename = LaunchConfiguration('fill_map', default=os.path.join(package_dir, 'resource', 'epuck_world_map.yamll'))
 
     # Rviz node
     rviz_config = os.path.join(package_dir, 'resource', 'all.rviz')
@@ -89,7 +89,7 @@ def generate_launch_description():
     # Mapping
     launch_description_nodes.append(
         Node(
-            package='webots_ros2_epuck',
+            package='lawn_mower_sim_01',
             executable='simple_mapper',
             output='screen',
             parameters=[{'use_sim_time': use_sim_time, 'fill_map': fill_map}],

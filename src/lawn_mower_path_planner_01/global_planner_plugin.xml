@@ -1,5 +1,0 @@
-<library path="lawn_mower_path_planner_01">
-	<class name="lawn_mower_path_planer_01/StraightLine" type="lawn_mower_path_planer_01/StraightLine::StraightLine" base_class_type="nav2_core::GlobalPlanner">
-	  <description>This is an example plugin which produces straight path.</description>
-	</class>
-</library>

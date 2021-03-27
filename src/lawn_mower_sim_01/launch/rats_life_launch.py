@@ -31,7 +31,7 @@ from launch.actions import ExecuteProcess
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
-    package_dir = get_package_share_directory('webots_ros2_epuck')
+    package_dir = get_package_share_directory('lawn_mower_sim_01')
     nav2_map = os.path.join(package_dir, 'resource', 'map_rats_life.yaml')
 
     webots = IncludeLaunchDescription(
@@ -39,7 +39,7 @@ def generate_launch_description():
             os.path.join(get_package_share_directory('webots_ros2_core'), 'launch', 'robot_launch.py')
         ),
         launch_arguments=[
-            ('package', 'webots_ros2_epuck'),
+            ('package', 'lawn_mower_sim_01'),
             ('executable', 'driver'),
             ('world', os.path.join(package_dir, 'worlds', 'rats_life_benchmark.wbt')),
         ],
