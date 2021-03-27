@@ -22,7 +22,7 @@ https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-E-puck-for-ROS2-Beginne
 
 * terminal C>source /opt/ros/foxy/setup.sh
 * terminal C>source install/setup.sh
-* terminal C>ros2 launch lawn_mower_path_planing_01 bt_launch.py
+* terminal C>ros2 launch lawn_mower_bt_01 bt_launch.py
 
 
 
