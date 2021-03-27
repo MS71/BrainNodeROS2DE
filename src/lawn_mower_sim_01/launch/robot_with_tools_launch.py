@@ -25,7 +25,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    package_dir = get_package_share_directory('webots_ros2_epuck')
+    package_dir = get_package_share_directory('lawn_mower_sim_01')
 
     use_nav = LaunchConfiguration('nav', default=False)
     use_rviz = LaunchConfiguration('rviz', default=False)

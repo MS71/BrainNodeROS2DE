@@ -11,12 +11,12 @@ The benchmark is highly inspired by the [_The Rat's Life Benchmark: Competing Co
 Mapping is based on a custom node `simple_mapper,` which only relies on the odometry.
 You can launch the mapping with the following command:
 ```bash
-ros2 launch webots_ros2_epuck rats_life_waypoints_launch.py use_sim_time:=true
+ros2 launch lawn_mower_sim_01 rats_life_waypoints_launch.py use_sim_time:=true
 ```
 
 ## Navigation
 Navigation utilizes the `navigation2` package and pre-built map.
 To run the navigation, use the following command:
 ```bash
-ros2 launch webots_ros2_epuck rats_life_launch.py use_sim_time:=true
+ros2 launch lawn_mower_sim_01 rats_life_launch.py use_sim_time:=true
 ```

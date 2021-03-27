@@ -102,14 +102,14 @@ def get_waypoints():
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
-    package_dir = get_package_share_directory('webots_ros2_epuck')
+    package_dir = get_package_share_directory('lawn_mower_sim_01')
 
     webots = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('webots_ros2_core'), 'launch', 'robot_launch.py')
         ),
         launch_arguments=[
-            ('package', 'webots_ros2_epuck'),
+            ('package', 'lawn_mower_sim_01'),
             ('executable', 'driver'),
             ('world', os.path.join(package_dir, 'worlds', 'rats_life_benchmark.wbt')),
         ],
@@ -140,7 +140,7 @@ def generate_launch_description():
     )
 
     mapper = Node(
-        package='webots_ros2_epuck',
+        package='lawn_mower_sim_01',
         executable='simple_mapper',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time, 'fill_map': True}],
